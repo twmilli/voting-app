@@ -1,4 +1,4 @@
-$theme1: rgb(249, 202, 98);
+$theme1: rgb(123, 71, 252);
 $theme2: #cccaca;
 
 
@@ -17,7 +17,18 @@ body{
 
   .menu-title{
     text-decoration: none;
-    color: black;
+    color: $theme2;
+  }
+  .menu-title:hover{
+    color: $theme2+50;
+    cursor: pointer;
+  }
+
+  .add-poll{
+    @extend .menu-title;
+    text-align: right;
+    position: absolute;
+    right: 1rem;
   }
 }
 

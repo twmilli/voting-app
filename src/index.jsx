@@ -7,6 +7,7 @@ import css from './styles/main.scss';
 import store, {history} from './store.js';
 import {Provider} from 'react-redux';
 import Voting from './components/Voting';
+import Create from './components/Create';
 
 const routes = (
   <Provider store = {store}>
@@ -14,6 +15,7 @@ const routes = (
       <Route path='/' component = {MainContainer}>
         <IndexRoute  component={Dashboard}/>
         <Route path='/vote/:index' component = {Voting}></Route>
+        <Route path='/new' component = {Create}></Route>
       </Route>
     </Router>
   </Provider>
