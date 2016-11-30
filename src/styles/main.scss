@@ -1,3 +1,43 @@
+$theme1: rgb(249, 202, 98);
+$theme2: #cccaca;
+
+
 body{
-  background-color: black;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+.menu-bar{
+  width: 100%;
+  margin: 0;
+  height: 4rem;
+  background-color: $theme1;
+  padding: 1rem 0 0 3rem;
+
+  .menu-title{
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.link{
+  text-decoration: none;
+  color: black;
+  font-size: 2em;
+}
+
+.topic{
+  width: 100%;
+  background-color: $theme2;
+  height: 3rem;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 3rem;
+
+  &:hover{
+    background-color: $theme2+15;
+    cursor: pointer;
+  }
+
 }
