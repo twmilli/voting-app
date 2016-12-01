@@ -1,5 +1,6 @@
 $theme1: rgb(123, 71, 252);
 $theme2: #cccaca;
+$radius: 1rem;
 
 
 body{
@@ -60,4 +61,19 @@ body{
 
 .directions{
   text-align: center;
+}
+
+.create{
+  max-width: 400px;
+  margin: 3rem auto;
+
+  input{
+    font-size: 1.1em;
+    width: 100%;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: $radius;
+  }
+
 }

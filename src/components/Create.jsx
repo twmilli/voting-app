@@ -1,13 +1,13 @@
 import React from 'react';
 const MAX_CHOICES = 5;
-
+const PropTypes = React.PropTypes;
 export default React.createClass({
+
   contextTypes:{
-    router: React.PropTypes.object.isRequired
+    router: PropTypes.object.isRequired
   },
 
   handleSubmit(e){
-    console.log('test');
     e.preventDefault();
     var choices = [];
     var val;
@@ -28,6 +28,7 @@ export default React.createClass({
     }
     return(
       <div className='create'>
+        <div className="create-heading">Provide information for the new poll</div>
         <form action="" ref="createPoll" onSubmit={this.handleSubmit}>
           <input type="text" ref="title" placeholder="title"/>
           {choices}
