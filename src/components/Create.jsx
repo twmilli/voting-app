@@ -17,6 +17,7 @@ export default React.createClass({
         choices.push(val);
       }
     }
+    this.props.addTopic(this.refs.title.value,choices);
     this.context.router.push({
       pathname: '/'
     });

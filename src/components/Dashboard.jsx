@@ -1,15 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router';
-const PropTypes = React.PropTypes
-export default React.createClass({
-  propTypes: {
-    topics: React.PropTypes.array
-  },
+import {List} from 'immutable';
+const PropTypes = React.PropTypes;
+const Dashboard = React.createClass({
   renderTopic(topic, i){
     return(
       <div className="topic" key={i}>
         <Link to={`/vote/${i}`} className='link'>
-          {topic.title}
+          {topic.get('title')}
         </Link>
       </div>
     )
@@ -29,3 +27,9 @@ export default React.createClass({
     );
   }
 });
+
+Dashboard.propTypes = {
+    topics: React.PropTypes.instanceOf(List).isRequired
+}
+
+export default Dashboard;

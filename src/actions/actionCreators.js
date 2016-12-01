@@ -4,8 +4,14 @@ export function setState(state){
   });
 }
 
-export function addTopic(name){
+export function addTopic(name, choices){
   return({
-    type: 'ADD_TOPIC', name
+    type: 'ADD_TOPIC', name, choices
+  });
+}
+
+export function vote(index,choice){
+  return({
+    type: 'VOTE', index, choice
   });
 }
