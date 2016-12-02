@@ -1,7 +1,7 @@
-import {combineReducers} from 'redux';
-import {routerReducer} from 'react-router-redux';
+import {combineReducers} from 'redux-immutable';
 import {fromJS} from 'immutable';
 import {addTopic,vote} from './core';
+import {LOCATION_CHANGE} from 'react-router-redux';
 
 export function topics(state=[], action){
   switch(action.type){
@@ -15,4 +15,16 @@ export function topics(state=[], action){
   return fromJS(state);
 }
 
-export default combineReducers({topics, routing: routerReducer});
+const initialState = fromJS({
+  locationBeforeTransitions: null
+});
+
+
+ function routeReducer(state=initialState, action){
+  if (action.type === LOCATION_CHANGE){
+    return state.set('locationBeforeTransitions', action.payload)
+  }
+  return state;
+}
+
+export default combineReducers({topics, routing: routeReducer});

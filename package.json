@@ -24,6 +24,7 @@
     "react-hot-loader": "^1.3.0",
     "react-router-redux": "^4.0.7",
     "react-scripts": "0.7.0",
+    "redux-immutable": "^3.0.8",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",

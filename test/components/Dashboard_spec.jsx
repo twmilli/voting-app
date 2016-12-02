@@ -8,10 +8,11 @@ import {
 import {List,Map} from 'immutable';
 import Dashboard from '../../src/components/Dashboard';
 import {expect} from 'chai';
+import {fromJS} from 'immutable';
 
 describe('Dashboard', () =>{
   it('renders the topics individually', ()=>{
-    const topics = [
+    const topics = fromJS([
         {
           title: "Favorite Color",
           choices:['red','blue','yellow','green'],
@@ -26,7 +27,7 @@ describe('Dashboard', () =>{
             red: 1
           }
         }
-      ];
+      ]);
 
       const component = renderIntoDocument(
         <Dashboard topics = {topics}/>

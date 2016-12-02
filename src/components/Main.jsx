@@ -19,9 +19,8 @@ export const Main = React.createClass({
 });
 
 function mapStateToProps(state){
-  console.log(state.topics);
   return {
-    topics: state.topics
+    topics: state.get('topics')
   }
 }
 function mapDispatchToProps(dispatch){

@@ -9,20 +9,7 @@ import {Provider} from 'react-redux';
 import Voting from './components/Voting';
 import Create from './components/Create';
 import {setState} from './actions/actionCreators';
-
-const state = {
-  topics:[
-    {
-      title: "Favorite Color",
-      choices:['red','blue','yellow','green'],
-      tally:{
-        red: 1
-      }
-    }
-  ]
-}
-store.dispatch(setState(state));
-
+console.log(store.getState());
 const routes = (
   <Provider store = {store}>
     <Router history = {history}>

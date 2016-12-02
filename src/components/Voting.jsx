@@ -5,7 +5,6 @@ export default React.createClass({
     topics: PropTypes.object.isRequired,
   },
   render(){
-    console.log(this.props.params);
     const {index} = this.props.params;
     const topic = this.props.topics[index];
     return(

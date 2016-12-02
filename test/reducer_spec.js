@@ -1,6 +1,6 @@
 import React from 'react';
 import {List,Map, fromJS} from 'immutable';
-import {mainReducer} from '../src/reducers/index';
+import {topics} from '../src/reducers/index';
 import {expect} from 'chai';
 
 describe('rootReducer', ()=>{
@@ -17,7 +17,7 @@ describe('rootReducer', ()=>{
       ]
     };
     const action = {type: 'SET_STATE', state: defaultState};
-    const nextState = mainReducer(defaultState, action);
+    const nextState = topics(defaultState, action);
     expect(nextState).to.equal(fromJS({
       topics:[
         {
@@ -47,7 +47,7 @@ describe('rootReducer', ()=>{
     const action = {type: 'ADD_TOPIC',
     title: 'Favorite Movie',
     choices:['Toy Story', 'Mulan', 'Inception']};
-    const nextState = mainReducer(state,action);
+    const nextState = topics(state,action);
     expect(nextState).to.equal(fromJS({
       topics:[
         {
@@ -76,7 +76,7 @@ describe('rootReducer', ()=>{
     ]
   });
   const action = {type: 'VOTE', index: 0, choice: 'red'}
-  const nextState = mainReducer(state,action);
+  const nextState = topics(state,action);
   expect(nextState).to.equal(fromJS({
     topics:[
       {
@@ -105,7 +105,7 @@ describe('rootReducer', ()=>{
     ]
   });
   const action = {type:'VOTE', index: 0, choice: 'green'};
-  const nextState = mainReducer(state,action);
+  const nextState = topics(state,action);
   expect(nextState).to.equal(fromJS({
     topics:[
       {
