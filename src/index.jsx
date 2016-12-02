@@ -9,12 +9,11 @@ import {Provider} from 'react-redux';
 import Voting from './components/Voting';
 import Create from './components/Create';
 import {setState} from './actions/actionCreators';
-console.log(store.getState());
 const routes = (
   <Provider store = {store}>
     <Router history = {history}>
       <Route path='/' component = {MainContainer}>
-        <IndexRoute  component={Dashboard}/>
+        <IndexRoute component={Dashboard}/>
         <Route path='/vote/:index' component = {Voting}></Route>
         <Route path='/new' component = {Create}></Route>
       </Route>
