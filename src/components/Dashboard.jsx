@@ -1,7 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router';
-import {List} from 'immutable';
-const PropTypes = React.PropTypes;
 const Dashboard = React.createClass({
   renderTopic(topic, i){
     return(
@@ -27,9 +25,4 @@ const Dashboard = React.createClass({
     );
   }
 });
-
-Dashboard.propTypes = {
-    topics: React.PropTypes.instanceOf(List).isRequired
-}
-
 export default Dashboard;

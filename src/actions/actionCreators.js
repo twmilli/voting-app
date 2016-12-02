@@ -4,9 +4,9 @@ export function setState(state){
   });
 }
 
-export function addTopic(name, choices){
+export function addTopic(title, choices){
   return({
-    type: 'ADD_TOPIC', name, choices
+    type: 'ADD_TOPIC', title, choices
   });
 }
 
