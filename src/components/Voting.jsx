@@ -1,5 +1,6 @@
 import React from 'react';
-import {PieTooltip} from 'react-d3-tooltip'
+import {PieTooltip} from 'react-d3-tooltip';
+import VotingForm from './VotingForm';
 export default React.createClass({
   render(){
     const {index} = this.props.params;
@@ -8,22 +9,23 @@ export default React.createClass({
     const height = 600;
     const value = d => +d.votes;
     const name = d => d.choice;
-    const dataIm = topic.get('choices').map((choice)=>{
+    const choices = topic.get('choices').filter((choice)=>{
+      return topic.hasIn(['tally', choice])
+    })
+    const data = choices.map((choice)=>{
       return({
         choice,
         votes: topic.getIn(['tally',choice], 0)
-    })});
-    const chartSeriesIm = topic.get('choices').map((choice)=>{
+    })}).toArray();
+    const chartSeries = choices.map((choice)=>{
       return({
         "field": choice,
         "name": choice
       });
-    });
-    var chartSeries = chartSeriesIm.toArray();
-    var data = dataIm.toArray();
-    console.log(data);
+    }).toArray();
     return(
       <div className="voting">
+      <VotingForm choices = {topic.get('choices')} title = {topic.get('title')}/>
       <PieTooltip
       title = {topic.get('title')}
       width = {width}
