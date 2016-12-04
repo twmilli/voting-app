@@ -10,3 +10,5 @@ To Do:
 * Connect state to node/mongo API
 * Add a few more tests
 * Ability to Toggle between bar chart and pie chart
+* Give it a name
+* Deploy :)
