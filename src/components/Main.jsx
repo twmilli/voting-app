@@ -20,7 +20,8 @@ export const Main = React.createClass({
 
 function mapStateToProps(state){
   return {
-    topics: state.get('topics')
+    topics: state.get('topics'),
+    graphView: state.get('graphView')
   }
 }
 function mapDispatchToProps(dispatch){

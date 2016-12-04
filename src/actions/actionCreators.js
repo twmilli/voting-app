@@ -15,3 +15,9 @@ export function vote(index,choice){
     type: 'VOTE', index, choice
   });
 }
+
+export function changeGraph(view){
+  return({
+    type: 'CHANGE_GRAPH', view
+  });
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import {List,Map, fromJS} from 'immutable';
-import {topics} from '../src/reducers/index';
+import {topics, graphView} from '../src/reducers/index';
 import {expect} from 'chai';
 
 describe('topicsReducer', ()=>{
@@ -111,4 +111,18 @@ describe('topicsReducer', ()=>{
     ]
   ));
   })
+});
+
+describe('graphView reducer', ()=>{
+  it('gets initial state correctly', ()=>{
+    const state = graphView(undefined, 'SET_STATE');
+    expect(state).to.equal("PIE")
+  })
+
+  it('changes views correctly', ()=>{
+    const state = 'PIE';
+    const action = {type: 'CHANGE_GRAPH', view:'BAR'};
+    const nextState = graphView(state,action);
+    expect(nextState).to.equal('BAR');
+  });
 });

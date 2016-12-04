@@ -1,5 +1,5 @@
 import React from 'react';
-import {PieTooltip} from 'react-d3-tooltip';
+import {PieTooltip, BarTooltip} from 'react-d3-tooltip';
 var SimpleTooltipStyle = require('react-d3-tooltip').SimpleTooltip;
 import VotingForm from './VotingForm';
 export default React.createClass({
@@ -27,11 +27,14 @@ export default React.createClass({
     },
     render() {
         const {index} = this.props.params;
+        console.log(index);
         const topic = this.props.topics.get(index);
         const width = 500;
         const height = 500;
         const value = d => + d.votes;
         const name = d => d.choice;
+        const xScale = 'ordinal';
+        const yTicks = [5];
         const choices = topic.get('choices').filter((choice) => {
             return topic.hasIn(['tally', choice])
         })
@@ -43,19 +46,40 @@ export default React.createClass({
                 ], 0)
             })
         }).toArray();
-        const chartSeries = choices.map((choice) => {
-          if (this.validTextColour(choice)){
-            return ({"field": choice, "name": choice, color:choice});
-          }
-          return ({"field": choice, "name": choice});
+        var chartSeries = choices.map((choice) => {
+            if (this.validTextColour(choice)) {
+                return ({"field": choice, "name": choice, color: choice});
+            }
+            return ({"field": choice, "name": choice});
         }).toArray();
+        var graph;
+        if (this.props.graphView === 'PIE') {
+            graph = <PieTooltip title={topic.get('title')} width={width} height={height} value={value} name={name} chartSeries={chartSeries} data={data}>
+                <SimpleTooltipStyle/>
+            </PieTooltip>
+        }
+        else{
+          var chartSeries2 = [{
+            field: 'votes',
+            name: 'Frequency'
+        }];
+          graph = <BarTooltip
+          title={topic.get('title')}
+          width={width}
+          height={height}
+          x={name}
+          chartSeries={chartSeries2}
+          data={data}
+          xScale={xScale}
+          yTicks = {yTicks}>
+          <SimpleTooltipStyle/>
+          </BarTooltip>
+        }
         return (
             <div className="voting">
-                <VotingForm choices={topic.get('choices')} title={topic.get('title')} vote={this.props.vote} index={index}/>
+                <VotingForm choices={topic.get('choices')} title={topic.get('title')} vote={this.props.vote} index={index} changeGraph={this.props.changeGraph} graphView={this.props.graphView}/>
                 <div className="graph">
-                    <PieTooltip title={topic.get('title')} width={width} height={height} value={value} name={name} chartSeries={chartSeries} data={data}>
-                        <SimpleTooltipStyle/>
-                    </PieTooltip>
+                    {graph}
                 </div>
             </div>
         )

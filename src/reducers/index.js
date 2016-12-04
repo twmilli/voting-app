@@ -15,6 +15,14 @@ export function topics(state=[], action){
   return fromJS(state);
 }
 
+export function graphView(state="PIE", action){
+  switch(action.type){
+    case 'CHANGE_GRAPH':
+      return action.view.toUpperCase();
+  }
+  return state;
+}
+
 const initialState = fromJS({
   locationBeforeTransitions: null
 });
@@ -27,4 +35,4 @@ const initialState = fromJS({
   return state;
 }
 
-export default combineReducers({topics, routing: routeReducer});
+export default combineReducers({topics, graphView, routing: routeReducer});
