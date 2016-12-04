@@ -131,4 +131,39 @@ body{
   border-radius: 5px;
   width: 90%;
   padding: 1rem;
+  height: 500px;
+
+  .dropdown-wrapper{
+    color: white;
+    width: 30%;
+    display: inline-block;
+    position: absolute;
+    left: 5rem;
+
+    .submit{
+      padding: 10px 10px 10px 10px;
+      font-size: 14px;
+      width: 100%;
+      background: $theme1+25;
+      border: none;
+      border-radius: 5px;
+      color: #FFF;
+      box-shadow: 1px 1px 1px #4C6E91;
+      -webkit-box-shadow: 1px 1px 1px #6b4c91;
+      -moz-box-shadow: 1px 1px 1px #6b4c91;
+      text-shadow: 1px 1px 1px #5079A3;
+      margin-top: 1rem;
+    }
+
+    .submit:hover{
+      background: $theme1;
+      cursor: pointer;
+    }
+  }
+
+  .graph{
+    display: inline-block;
+    position: absolute;
+    right: 5rem;
+  }
 }

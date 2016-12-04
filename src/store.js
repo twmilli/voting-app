@@ -6,10 +6,14 @@ import {fromJS} from 'immutable';
 const state = fromJS({
   topics:[
     {
-      title: "Favorite Color",
-      choices:['red','blue','yellow','green'],
+      title: "Favorite Color?",
+      choices:['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
       tally:{
-        red: 1
+        Red: 6,
+        Blue: 3,
+        Green: 2,
+        Yellow: 4,
+        Purple: 6
       }
     }
   ]

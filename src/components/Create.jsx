@@ -13,12 +13,15 @@ export default React.createClass({
     var val;
     for (var i = 0; i <MAX_CHOICES; i++){
       val = this.refs["choice" + i.toString()].value;
+      val = val.charAt(0).toUpperCase() + val.slice(1);
       if (val != ""){
         choices.push(val);
       }
     }
     console.log(choices);
-    this.props.addTopic(this.refs.title.value,choices);
+    var title = this.refs.title.value;
+    title = title.charAt(0).toUpperCase() + title.slice(1);
+    this.props.addTopic(title,choices);
     this.context.router.push({
       pathname: '/'
     });
