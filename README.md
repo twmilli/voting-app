@@ -1,5 +1,5 @@
 # voting-app
-Front-end voting app
+Front-end voting app <br/>
 IN PROGRESS
 
 To Do:
