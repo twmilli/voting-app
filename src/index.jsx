@@ -9,6 +9,9 @@ import {Provider} from 'react-redux';
 import Voting from './components/Voting';
 import Create from './components/Create';
 import {setState} from './actions/actionCreators';
+import rootReducer from './reducers/index';
+
+
 const routes = (
   <Provider store = {store}>
     <Router history = {history}>

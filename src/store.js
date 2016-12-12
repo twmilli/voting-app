@@ -1,8 +1,13 @@
-import {createStore,compose} from 'redux';
+import {createStore,compose, applyMiddleware} from 'redux';
 import rootReducer from './reducers/index';
-import {syncHistoryWithStore} from 'react-router-redux';
-import {browserHistory} from 'react-router';
 import {fromJS} from 'immutable';
+import {browserHistory} from 'react-router';
+import {syncHistoryWithStore} from 'react-router-redux';
+import remoteActionMiddleware from './remote_action_middleware';
+import io from 'socket.io-client';
+import server from './config/config';
+import {setState} from './actions/actionCreators';
+
 const state = fromJS({
   topics:[
     {
@@ -19,10 +24,22 @@ const state = fromJS({
   ]
 });
 
-const store = createStore(rootReducer, state);
-export default store;
+const socket = io(server);
+
+const createStoreWithMiddleware = applyMiddleware(
+  remoteActionMiddleware(remoteActionMiddleware))(createStore);
+const store = createStoreWithMiddleware(rootReducer, state);
+
+socket.on('connection', ()=>{
+  console.log('CONNECTED');
+});
+socket.on('state', state=>{
+  store.dispatch(setState(state));
+});
+
 export const history = syncHistoryWithStore(browserHistory,store, {
   selectLocationState (state){
     return state.get('routing').toJS();
   }
 });
+export default store;

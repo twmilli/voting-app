@@ -6,13 +6,13 @@ export function setState(state){
 
 export function addTopic(title, choices){
   return({
-    type: 'ADD_TOPIC', title, choices
+    type: 'ADD_TOPIC', title, choices, meta:{remote: true}
   });
 }
 
 export function vote(index,choice){
   return({
-    type: 'VOTE', index, choice
+    type: 'VOTE', index, choice, meta: {remote: true}
   });
 }
 

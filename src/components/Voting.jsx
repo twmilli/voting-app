@@ -1,6 +1,6 @@
 import React from 'react';
 import {PieTooltip, BarTooltip} from 'react-d3-tooltip';
-var SimpleTooltipStyle = require('react-d3-tooltip').SimpleTooltip;
+import {SimpleTooltipStyle} from 'react-d3-tooltip';
 import VotingForm from './VotingForm';
 export default React.createClass({
     validTextColour(stringToTest) {
@@ -27,7 +27,6 @@ export default React.createClass({
     },
     render() {
         const {index} = this.props.params;
-        console.log(index);
         const topic = this.props.topics.get(index);
         const width = 500;
         const height = 500;
@@ -61,7 +60,7 @@ export default React.createClass({
         else{
           var chartSeries2 = [{
             field: 'votes',
-            name: 'Frequency'
+            name: 'Votes'
         }];
           graph = <BarTooltip
           title={topic.get('title')}
