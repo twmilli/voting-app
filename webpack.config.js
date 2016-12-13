@@ -22,14 +22,14 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './',
+    contentBase: '/public',
     hot: true
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env':{
-        'NODE_ENV':'"debug"'
+        'NODE_ENV':'"prod"'
       }
     })
   ]
