@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "5db547e2908fb238d7c0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c0b8f494d8d4b36282e9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -642,10 +642,10 @@
 	    { history: _store.history },
 	    _react2.default.createElement(
 	      _reactRouter.Route,
-	      { path: '/', component: _Main.MainContainer },
+	      { path: '/voting-app', component: _Main.MainContainer },
 	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _Dashboard2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: '/vote/:index', component: _Voting2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: '/new', component: _Create2.default })
+	      _react2.default.createElement(_reactRouter.Route, { path: '/voting-app/vote/:index', component: _Voting2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { path: '/voting-app/new', component: _Create2.default })
 	    )
 	  )
 	);
@@ -43662,12 +43662,12 @@
 
 	'use strict';
 
-	var server = 'heroku-deployed-name.com';
+	var server = 'https://vote-backend.herokuapp.com/';
 
 	var env = ("prod");
 
 	if (env === 'debug') {
-	  server = 'https://vote-backend.herokuapp.com/';
+	  server = 'http://localhost:3000';
 	}
 
 	module.exports = server;

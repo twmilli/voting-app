@@ -15,10 +15,10 @@ import rootReducer from './reducers/index';
 const routes = (
   <Provider store = {store}>
     <Router history = {history}>
-      <Route path='/' component = {MainContainer}>
+      <Route path='/voting-app' component = {MainContainer}>
         <IndexRoute component={Dashboard}/>
-        <Route path='/vote/:index' component = {Voting}></Route>
-        <Route path='/new' component = {Create}></Route>
+        <Route path='/voting-app/vote/:index' component = {Voting}></Route>
+        <Route path='/voting-app/new' component = {Create}></Route>
       </Route>
     </Router>
   </Provider>
