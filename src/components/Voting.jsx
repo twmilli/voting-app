@@ -1,6 +1,6 @@
 import React from 'react';
 import {PieTooltip, BarTooltip} from 'react-d3-tooltip';
-import {SimpleTooltipStyle} from 'react-d3-tooltip';
+var SimpleTooltipStyle = require('react-d3-tooltip').SimpleTooltip;
 import VotingForm from './VotingForm';
 export default React.createClass({
     validTextColour(stringToTest) {

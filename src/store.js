@@ -27,7 +27,7 @@ const state = fromJS({
 const socket = io(server);
 
 const createStoreWithMiddleware = applyMiddleware(
-  remoteActionMiddleware(remoteActionMiddleware))(createStore);
+  remoteActionMiddleware(socket))(createStore);
 const store = createStoreWithMiddleware(rootReducer, state);
 
 socket.on('connection', ()=>{
