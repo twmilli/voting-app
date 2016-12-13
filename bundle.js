@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "06d5ede829144c40c3a2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5db547e2908fb238d7c0"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -3910,7 +3910,7 @@
 
 	var ReactComponentTreeHook;
 
-	if (typeof process !== 'undefined' && ({"NODE_ENV":"debug"}) && ("debug") === 'test') {
+	if (typeof process !== 'undefined' && ({"NODE_ENV":"prod"}) && ("prod") === 'test') {
 	  // Temporary hack.
 	  // Inline requires don't work well with Jest:
 	  // https://github.com/facebook/react/issues/7240
@@ -15246,7 +15246,7 @@
 
 	var ReactComponentTreeHook;
 
-	if (typeof process !== 'undefined' && ({"NODE_ENV":"debug"}) && ("debug") === 'test') {
+	if (typeof process !== 'undefined' && ({"NODE_ENV":"prod"}) && ("prod") === 'test') {
 	  // Temporary hack.
 	  // Inline requires don't work well with Jest:
 	  // https://github.com/facebook/react/issues/7240
@@ -16477,7 +16477,7 @@
 
 	var ReactComponentTreeHook;
 
-	if (typeof process !== 'undefined' && ({"NODE_ENV":"debug"}) && ("debug") === 'test') {
+	if (typeof process !== 'undefined' && ({"NODE_ENV":"prod"}) && ("prod") === 'test') {
 	  // Temporary hack.
 	  // Inline requires don't work well with Jest:
 	  // https://github.com/facebook/react/issues/7240
@@ -17164,7 +17164,7 @@
 
 	var ReactComponentTreeHook;
 
-	if (typeof process !== 'undefined' && ({"NODE_ENV":"debug"}) && ("debug") === 'test') {
+	if (typeof process !== 'undefined' && ({"NODE_ENV":"prod"}) && ("prod") === 'test') {
 	  // Temporary hack.
 	  // Inline requires don't work well with Jest:
 	  // https://github.com/facebook/react/issues/7240
@@ -25405,7 +25405,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function makeStateWithLocation(state, location) {
-	  if (("debug") !== 'production' && _deprecateObjectProperties.canUseMembrane) {
+	  if (("prod") !== 'production' && _deprecateObjectProperties.canUseMembrane) {
 	    var stateWithLocation = _extends({}, state);
 
 	    // I don't use deprecateObjectProperties here because I want to keep the
@@ -27762,7 +27762,7 @@
 	*/
 	function isCrushed() {}
 
-	if (("debug") !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
+	if (("prod") !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
 	  (0, _warning2['default'])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
 	}
 
@@ -35853,7 +35853,7 @@
 
 	  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
 	  if (typeof process !== 'undefined' && 'env' in process) {
-	    return ({"NODE_ENV":"debug"}).DEBUG;
+	    return ({"NODE_ENV":"prod"}).DEBUG;
 	  }
 	}
 
@@ -43664,10 +43664,10 @@
 
 	var server = 'heroku-deployed-name.com';
 
-	var env = ("debug");
+	var env = ("prod");
 
 	if (env === 'debug') {
-	  server = 'http://localhost:3000';
+	  server = 'https://vote-backend.herokuapp.com/';
 	}
 
 	module.exports = server;
