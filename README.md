@@ -1,6 +1,6 @@
 # voting-app
 Front-end voting app <br/>
-http://twmilli.github.io/voting-app/<br/>
+http://project-vote.surge.sh/<br/>
 IN PROGRESS
 
 Current Features:
