@@ -29,7 +29,24 @@ body{
     @extend .menu-title;
     text-align: right;
     position: absolute;
-    right: 1rem;
+    right: 3%;
+  }
+  .sign-in{
+    color: $theme1;
+    background: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    border: 1px white solid;
+    border-radius: 5px;
+    font-size: 28px;
+    font-style: bold;
+    position: absolute;
+    right: 15%;
+  }
+  .sign-in:hover{
+    background-color: $theme1;
+    color: white;
+    cursor: pointer;
   }
 }
 
@@ -210,5 +227,12 @@ body{
     .right{
       border-radius: 0 5px 5px 0;
     }
+  }
+}
+
+.login-container{
+  @extend .create;
+  .email{
+
   }
 }

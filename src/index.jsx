@@ -10,6 +10,7 @@ import Voting from './components/Voting';
 import Create from './components/Create';
 import {setState} from './actions/actionCreators';
 import rootReducer from './reducers/index';
+import Login from './components/Login';
 
 
 const routes = (
@@ -18,6 +19,7 @@ const routes = (
       <Route path='/' component = {MainContainer}>
         <IndexRoute component={Dashboard}/>
         <Route path='/vote/:index' component = {Voting}></Route>
+        <Route path='/login' component={Login}></Route>
         <Route path='/new' component = {Create}></Route>
       </Route>
     </Router>

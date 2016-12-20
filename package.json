@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --content-base public --inline --hot",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "build-production": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors"
   },
   "author": "Taylor Milliman",
   "license": "ISC",
@@ -33,6 +34,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "express": "^4.14.0",
     "immutable": "^3.8.1",
     "react": "^15.4.1",

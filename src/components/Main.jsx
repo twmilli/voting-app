@@ -10,6 +10,7 @@ export const Main = React.createClass({
       <div>
         <h1 className="menu-bar">
           <Link to ='/' className='menu-title'>Voting App</Link>
+          <Link to ='/login' className="sign-in">Login</Link>
           <Link className='add-poll' to='/new'>+</Link>
         </h1>
         {React.cloneElement(this.props.children, this.props)}
