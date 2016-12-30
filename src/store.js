@@ -7,6 +7,7 @@ import remoteActionMiddleware from './remote_action_middleware';
 import io from 'socket.io-client';
 import server from './config/config';
 import {setState} from './actions/actionCreators';
+import axios from 'axios';
 
 const state = fromJS({
   topics:[
@@ -21,7 +22,8 @@ const state = fromJS({
         Purple: 6
       }
     }
-  ]
+  ],
+  user:"twmilli"
 });
 
 const socket = io(server);
@@ -33,6 +35,7 @@ const store = createStoreWithMiddleware(rootReducer, state);
 socket.on('connection', ()=>{
   console.log('CONNECTED');
 });
+
 socket.on('state', state=>{
   store.dispatch(setState(state));
 });

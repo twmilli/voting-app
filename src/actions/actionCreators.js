@@ -21,3 +21,9 @@ export function changeGraph(view){
     type: 'CHANGE_GRAPH', view
   });
 }
+
+export function setUser(user){
+  return({
+    type: 'SET_USER', user, meta: {remote: false}
+  });
+}

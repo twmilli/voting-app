@@ -48,6 +48,14 @@ body{
     color: white;
     cursor: pointer;
   }
+
+  .user-in{
+    @extend .sign-in;
+    top: 12px;
+  }
+  .user-in:hover{
+    cursor: default;
+  }
 }
 
 .link{
@@ -235,4 +243,8 @@ body{
   .email{
 
   }
+}
+
+.sent{
+  text-align: center;
 }

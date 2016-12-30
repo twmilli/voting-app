@@ -1,15 +1,20 @@
 import React from 'react';
 import {login} from '../utils/helpers';
 import server from '../config/config';
+const PropTypes = React.PropTypes;
 
 export default React.createClass({
+  contextTypes:{
+    router: PropTypes.object.isRequired
+  },
+
   handleSubmit(e){
     e.preventDefault();
     const email = this.refs.user.value;
-    console.log('Submitting POST request');
+    this.context.router.push({
+      pathname: '/sent'
+    });
     login(email).then(res=>{
-      console.log("TEST");
-      console.log(res);
     });
   },
   render(){

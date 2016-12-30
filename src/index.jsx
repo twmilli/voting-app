@@ -11,7 +11,8 @@ import Create from './components/Create';
 import {setState} from './actions/actionCreators';
 import rootReducer from './reducers/index';
 import Login from './components/Login';
-
+import Sent from './components/Sent';
+import User from './components/User';
 
 const routes = (
   <Provider store = {store}>
@@ -21,6 +22,8 @@ const routes = (
         <Route path='/vote/:index' component = {Voting}></Route>
         <Route path='/login' component={Login}></Route>
         <Route path='/new' component = {Create}></Route>
+        <Route path='/sent' component={Sent}></Route>
+        <Route path='/:user' component={User}></Route>
       </Route>
     </Router>
   </Provider>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {List,Map, fromJS} from 'immutable';
-import {topics, graphView} from '../src/reducers/index';
+import {topics, graphView, user} from '../src/reducers/index';
 import {expect} from 'chai';
 
 describe('topicsReducer', ()=>{
@@ -126,3 +126,16 @@ describe('graphView reducer', ()=>{
     expect(nextState).to.equal('BAR');
   });
 });
+
+describe('user reducer',()=>{
+  it('sets initial state correctly', ()=>{
+    const state = user(undefined, 'SET_STATE');
+    expect(state).to.equal(fromJS(""));
+  });
+
+  it('correctly handles SET_USER', ()=>{
+    const action = {type: 'SET_USER', user: 'twmilli'};
+    const state = user("",action);
+    expect(state).to.equal(fromJS('twmilli'));
+  });
+})

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import server from '../config/config';
 const Dashboard = React.createClass({
   renderTopic(topic, i){
     return(
@@ -11,13 +12,12 @@ const Dashboard = React.createClass({
     )
   },
   render(){
-    console.log(this.props);
     return(
       <div>
         <h2 className='directions'>
           Welcome to my voting app! <br/>
-          Click on a topic to vote or view the results <br/>
-          Click the plus symbol to at a new topic
+          Click on a topic to vote or view the results. <br/>
+          Click the plus symbol to at a new topic.
         </h2>
         <div className='dashboard'>
           {this.props.topics.map(this.renderTopic)}
