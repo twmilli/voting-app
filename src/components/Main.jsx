@@ -6,17 +6,28 @@ import * as actionCreators from '../actions/actionCreators';
 
 export const Main = React.createClass({
   render(){
+    if (this.props.params.user){
+      this.props.setUser(this.props.params.user);
+    }
     const user = this.props.user;
+    var myPolls;
+    var add;
     var login_label = (<Link to ='/login' className="sign-in">Login</Link>)
-    if (user){
-      login_label = (<div className="user-in">Hello {user}!</div>)
+    if (user.get('logged_in')){
+      const email = user.get('name');
+      const index = email.search('@');
+      const name = email.slice(0,index);
+      myPolls = <Link className='my-polls' to='/mypolls'>My Polls</Link>
+      login_label = (<div className="user-in">Hello {name}!</div>);
+      add = <Link className='add-poll' to='/new'>+</Link>
     }
     return(
       <div>
         <h1 className="menu-bar">
           <Link to ='/' className='menu-title'>Voting App</Link>
+          {myPolls}
           {login_label}
-          <Link className='add-poll' to='/new'>+</Link>
+          {add}
         </h1>
         {React.cloneElement(this.props.children, this.props)}
       </div>

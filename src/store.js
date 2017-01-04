@@ -13,6 +13,7 @@ const state = fromJS({
   topics:[
     {
       title: "Favorite Color?",
+      creator: 'twm013@bucknell.edu',
       choices:['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
       tally:{
         Red: 6,
@@ -23,7 +24,10 @@ const state = fromJS({
       }
     }
   ],
-  user:"twmilli"
+  user:{
+        name: "",
+        logged_in: false
+      }
 });
 
 const socket = io(server);

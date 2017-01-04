@@ -18,10 +18,10 @@ export default React.createClass({
         choices.push(val);
       }
     }
-    console.log(choices);
     var title = this.refs.title.value;
+    console.log(this.props.user.get('name'));
     title = title.charAt(0).toUpperCase() + title.slice(1);
-    this.props.addTopic(title,choices);
+    this.props.addTopic(title, choices, this.props.user.get('name'));
     this.context.router.push({
       pathname: '/'
     });

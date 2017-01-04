@@ -11,6 +11,9 @@ export default React.createClass({
   handleSubmit(e){
     e.preventDefault();
     const email = this.refs.user.value;
+    this.props.setName(email);
+    localStorage.setItem("name", email);
+    console.log(localStorage.getItem("name"));
     this.context.router.push({
       pathname: '/sent'
     });
@@ -20,7 +23,8 @@ export default React.createClass({
   render(){
     return(
     <div className="login-container">
-    <h2>Project Vote relies on passwordless authentication!</h2>
+    <h2>Project vote relies on passwordless authentication to improve security.</h2>
+    <p>You can read more about that here: <a href="https://medium.com/@ninjudd/passwords-are-obsolete-9ed56d483eb#.f8rwes61t">Passwords are obsolete</a>. </p>
 
     <form onSubmit={this.handleSubmit}>
     <input name='user' ref='user' className='email' type='email' placeholder='Email' aria-required="true"/>

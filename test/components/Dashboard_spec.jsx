@@ -14,6 +14,7 @@ describe('Dashboard', () =>{
   it('renders the topics individually', ()=>{
     const topics = fromJS([
         {
+          creator: 'twm013@bucknell.edu',
           title: "Favorite Color",
           choices:['red','blue','yellow','green'],
           tally:{
@@ -21,6 +22,7 @@ describe('Dashboard', () =>{
           }
         },
         {
+          creator: 'twm013@bucknell.edu',
           title: "Test",
           choices:['red','blue','yellow','green'],
           tally:{

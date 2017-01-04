@@ -20,6 +20,9 @@ export default React.createClass({
         this.props.vote(this.props.index, this.state.value);
       }
     },
+    handleAddOption(e){
+      this.props.addChoice(this.props.index, this.refs.option.value);
+    },
     render() {
         const options = this.props.choices.map((choice, i) => {
             return ({
@@ -28,12 +31,17 @@ export default React.createClass({
             })
         }).toArray();
         return (
-          <div>
+          <div className='voting-form-wrapper'>
             <div className = 'dropdown-wrapper'>
                 <h1>Question: {this.props.title}</h1>
                 <h3>I'd like to vote for...</h3>
                 <Dropdown ref='dropdown' value={this.getValue()} options={options} name="Select an option" onChange={this.onChange} clearable={true}/>
                 <button className="submit" onClick={this.handleSubmit}>Submit</button>
+
+                <div className='new-option-form'>
+                  <input type="text" name='option' ref='option' placeholder="new option" required/>
+                  <button className="submit" onClick={this.handleAddOption}>Add a new option</button>
+                </div>
             </div>
             <div className="graph-type">
               <input type="radio" name='graph-type' id='Pie' checked={this.props.graphView == 'PIE'}

@@ -76,7 +76,13 @@ export default React.createClass({
         }
         return (
             <div className="voting">
-                <VotingForm choices={topic.get('choices')} title={topic.get('title')} vote={this.props.vote} index={index} changeGraph={this.props.changeGraph} graphView={this.props.graphView}/>
+                <VotingForm choices={topic.get('choices')}
+                title={topic.get('title')}
+                vote={this.props.vote}
+                index={index}
+                changeGraph={this.props.changeGraph}
+                graphView={this.props.graphView}
+                addChoice={this.props.addChoice}/>
                 <div className="graph">
                     {graph}
                 </div>

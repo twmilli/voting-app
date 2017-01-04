@@ -4,9 +4,9 @@ export function setState(state){
   });
 }
 
-export function addTopic(title, choices){
+export function addTopic(title, choices, creator){
   return({
-    type: 'ADD_TOPIC', title, choices, meta:{remote: true}
+    type: 'ADD_TOPIC', title, choices, creator, meta:{remote: true}
   });
 }
 
@@ -22,8 +22,26 @@ export function changeGraph(view){
   });
 }
 
-export function setUser(user){
+export function setName(name){
   return({
-    type: 'SET_USER', user, meta: {remote: false}
+    type: 'SET_NAME', name, meta: {remote: false}
+  });
+}
+
+export function login(){
+  return({
+    type: 'LOGIN', meta: {remote: false}
+  });
+}
+
+export function delete_topic(i){
+  return ({
+    type: 'DELETE', i, meta: {remote: true}
+  })
+}
+
+export function addChoice(i, choice){
+  return({
+    type: 'ADD_CHOICE', i, choice, meta: {remote: true}
   });
 }

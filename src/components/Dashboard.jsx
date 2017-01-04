@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import server from '../config/config';
+import axios from 'axios';
 const Dashboard = React.createClass({
   renderTopic(topic, i){
     return(
@@ -12,6 +13,17 @@ const Dashboard = React.createClass({
     )
   },
   render(){
+    const {user} = this.props;
+    if (!user.get("name") && localStorage.getItem("name")){
+      this.props.setName(localStorage.getItem("name"));
+    }
+    if (user && user.get('name')){
+      axios.get(server + 'logged_in/' + user.get('name')).then(res=>{
+        if (res.data){
+          this.props.login();
+        }
+      });
+    }
     return(
       <div>
         <h2 className='directions'>
