@@ -13,3 +13,4 @@ Current Features:
 To Do:
 * Add choice to topics (unlimited choices)
 * Order topics by popularity?
+* Make it so people can only vote once on each topic
